@@ -7,7 +7,6 @@ import webbrowser
 import pyjokes
 import time
 import requests
-import win32com.client as wincl
 from speak import speak
 
 import speech_recognition as sr

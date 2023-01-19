@@ -8,19 +8,7 @@ import pyjokes
 import time
 import requests
 import win32com.client as wincl
-
-def speak(str):
-    from win32com.client import Dispatch
-    speaker_number = 0
-    speak = wincl.Dispatch("SAPI.SpVoice")
-    vcs = speak.GetVoices()
-    SVSFlag = 11
-   # print(vcs.Item (speaker_number) .GetAttribute ("Name")) # speaker name
-    speak.Voice
-    speak.SetVoice(vcs.Item(speaker_number))
-    #SAPI.Voice = SAPI.getvoices.item(1)
-    print(f"Bumble_B : {str}")
-    speak.Speak(str)
+from speak import speak
 
 import speech_recognition as sr
 r=sr.Recognizer()
@@ -263,50 +251,4 @@ with sr.Microphone() as source:
                 except:
                     print('Sorry I could not Recognize You....Please try again')
 
-        elif "write a note" in query:
-            speak("What should i write, sir")
-            note =sr.Recognizer()
-            with sr.Microphone() as source:
-                print('Speak Something : ')
-                audio = note.listen(source)
-                try:
-                    text = note.recognize_google(audio)
-                    print('You : {}'.format(text))
-                except:
-                    print('Sorry I could not Recognize You....Please try again')
-            file = open('Bumble_B.txt', 'w')
-            speak("Sir, Should i include date and time")
-            snfm =sr.Recognizer()
-            with sr.Microphone() as source:
-                print('Speak Something : ')
-                audio = snfm.listen(source)
-                try:
-                    text = snfm.recognize_google(audio)
-                    print('You : {}'.format(text))
-                except:
-                    print('Sorry I could not Recognize You....Please try again')
-            if 'yes' in snfm or 'sure' in snfm:
-                strTime = datetime.datetime.now().strftime("% H:% M:% S")
-                file.write(strTime)
-                file.write(" :- ")
-                file.write(note)
-                
-            elif 'No' in snfm:
-                 file.write(note)
-         
-        elif "show note" in query:
-            speak("Showing Notes")
-            file = open("Bumble_B.txt", "r")
-            print(file.read())
-            speak(file.read(6))
-             
-            with open("Voice.py", "wb") as Pypdf:
-                 
-                total_length = int(r.headers.get('content-length'))
-                 
-                
- 
-
-
-
-
+        

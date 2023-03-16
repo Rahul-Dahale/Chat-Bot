@@ -2,7 +2,7 @@
 
 This is a Python code for a voice-controlled personal assistant that can perform various tasks such as searching on Wikipedia, opening web pages, and responding to greetings.
 
-#To use this code, follow the below steps:
+# To use this code, follow the below steps:
 
 Install the required packages:
 
